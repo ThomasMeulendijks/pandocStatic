@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="generator" content="pandoc" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+								<title>Quantified Student</title>
+		<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+		</style>
+						<link rel="stylesheet" href="css/main.css" />
+						<!--[if lt IE 9]>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+		<![endif]-->
+			</head>
+	<body>
+						<header id="title-block-header">
+			<h1 class="title">Quantified Student</h1>
+											</header>
+						<table style="width:86%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 11%" />
+<col style="width: 22%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Centered Header</th>
+<th>Default Aligned</th>
+<th style="text-align: right;">Right Aligned</th>
+<th style="text-align: left;">Left Aligned</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">First</td>
+<td>row</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: left;">Example of a row that spans multiple lines.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Second</td>
+<td>row</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: left;">Here’s another one. Note the blank line between rows.</td>
+</tr>
+</tbody>
+</table>
+<p>Quantified Student</p>
+<p>Analysedocument v2.0</p>
+<h1 id="contents" class="Kopvaninhoudsopgave">Contents</h1>
+<p><a href="#revision-history">Revision History 3</a></p>
+<p><a href="#glossary">Glossary 4</a></p>
+<p><a href="#requirements-specification-rs">Requirements Specification (RS) 5</a></p>
+<p><a href="#moscow-analysis">MoSCoW analysis 5</a></p>
+<p><a href="#functional-requirements">Functional Requirements 5</a></p>
+<p><a href="#central-storage-location">Central Storage Location 5</a></p>
+<p><a href="#data-gathering">Data Gathering 5</a></p>
+<p><a href="#application">Application 6</a></p>
+<p><a href="#non-functional-requirements">Non-functional Requirements 8</a></p>
+<p><a href="#quality-attributes">Quality attributes 8</a></p>
+<p><a href="#use-cases">Use cases 9</a></p>
+<p><a href="#use-case-tables">Use case tables: 9</a></p>
+<p><a href="#ui-draftssketches">UI drafts/sketches 10</a></p>
+<p><a href="#dashboard-1">Dashboard 10</a></p>
+<p><a href="#login-page">Login page 11</a></p>
+<p><a href="#registration-page">Registration page 11</a></p>
+<p><a href="#registration-page-service-selection">Registration page – Service selection 12</a></p>
+<p><a href="#appendix-1">Appendix 1: 13</a></p>
+<h1 id="revision-history">Revision History</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Version</th>
+<th style="text-align: left;">Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">27-09-2016</td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">Initial version</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">28-09-2016</td>
+<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">Updated this document to English, Use case diagrams and Use cases made by whole team.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">30-10-2016</td>
+<td style="text-align: left;">1.2</td>
+<td style="text-align: left;">Added UI mockups</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">19-12-2016</td>
+<td style="text-align: left;">1.3</td>
+<td style="text-align: left;">Updated quality attributes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15-01-2019</td>
+<td style="text-align: left;">2.0</td>
+<td style="text-align: left;">Rewritten most of the document</td>
+</tr>
+</tbody>
+</table>
+<h1 id="glossary">Glossary</h1>
+<table style="width:92%;">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Use case diagram</td>
+<td>In the Use case diagram shows the coherence and relations between the actor(s) and different use cases.</td>
+</tr>
+<tr class="even">
+<td>Use case</td>
+<td>A Use case represents an action that an actor can do. This can be something like “Administrator logging in”. Here the actor would be the administrator and the use case “log in”.</td>
+</tr>
+<tr class="odd">
+<td>Actor</td>
+<td>A specific type of user, using a specific system. For example a regular user or administrator.</td>
+</tr>
+<tr class="even">
+<td>MoSCoW</td>
+<td><p>The <strong>M</strong>o<strong>SC</strong>o<strong>W</strong>-model has been specifically designed to prioritize the different requirements for a project. By using the consonants in “<strong>M</strong>o<strong>SC</strong>o<strong>W</strong>” you can show the priority of a requirement.</p>
+<p>Below you can find a short explanation for each of the four different levels of priority.</p>
+<p><strong>Must</strong>: These requirements <strong>must</strong> be completed before the deadline.</p>
+<p><strong>Should</strong>: When all must-requirements are completed you can continue working on these requirements.</p>
+<p><strong>Could</strong>: These are identical to how the should-requirements compare to must requirements. Once you are finished with all should requirements you can work on these requirements.</p>
+<p><strong>Won’t</strong>: These requirements are not interesting enough to spend time on with the current project group, but could be interesting for the next project group.</p></td>
+</tr>
+<tr class="odd">
+<td>Functional requirements</td>
+<td>Functional requirements describe specific behavior and functions that the system has to provide/adhere to.</td>
+</tr>
+<tr class="even">
+<td>Non-functional requirements</td>
+<td>Non-functional requirements describe properties of the system, like performance. However you do not put any functional requirements in here.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="requirements-specification-rs">Requirements Specification (RS)</h1>
+<h2 id="moscow-analysis">MoSCoW analysis</h2>
+<p>Below you can find the tables with all the requirements for the Quantified Student project.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">W</td>
+</tr>
+</tbody>
+</table>
+<p>These are the colors associated with each priority level:</p>
+<h2 id="functional-requirements">Functional Requirements</h2>
+<p>Below are the detailed functional requirements for the Quantified Student project.</p>
+<h3 id="central-storage-location">Central Storage Location</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Id</th>
+<th style="text-align: left;">Requirement</th>
+<th style="text-align: left;">MoSCoW</th>
+<th style="text-align: left;">Urgency</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[CSL01]</td>
+<td style="text-align: left;">There is a central location where the data is stored</td>
+<td style="text-align: left;"><strong>M</strong></td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[CSL02]</td>
+<td style="text-align: left;">There is a central location where a backup of our data is stored</td>
+<td style="text-align: left;"><strong>M</strong></td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[CSL03]</td>
+<td style="text-align: left;">The data that is stored is encrypted</td>
+<td style="text-align: left;"><strong>M</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[CSL04]</td>
+<td style="text-align: left;">The registered users are stored in a separate storage location.</td>
+<td style="text-align: left;"><strong>M</strong></td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="section"></h3>
+<h3 id="data-gathering">Data Gathering</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Id</th>
+<th style="text-align: left;">Requirement</th>
+<th style="text-align: left;">MoSCoW</th>
+<th style="text-align: left;">Urgency</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[DC01]</td>
+<td style="text-align: left;">There is a method defined that will collect the data from the Fitbit API</td>
+<td style="text-align: left;"><strong>M</strong></td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[DC02]</td>
+<td style="text-align: left;">There is a method defined that will collect the data from the Fontys API</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[DC03]</td>
+<td style="text-align: left;">There is a method defined that will collect environment data from an external API.</td>
+<td style="text-align: left;"><strong>C</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[DC04]</td>
+<td style="text-align: left;">There is a mobile application that collects extra data</td>
+<td style="text-align: left;"><strong>C</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[DC05]</td>
+<td style="text-align: left;">There is a method defined that will collect data from Smart Citizen devices</td>
+<td style="text-align: left;"><strong>C</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="application">Application</h3>
+<h4 id="user-identification-system">User Identification System</h4>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 36%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Id</th>
+<th style="text-align: left;">Requirement</th>
+<th style="text-align: left;">MoSCoW</th>
+<th style="text-align: left;">Urgency</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[UIS01]</td>
+<td style="text-align: left;">A user can register using their school account</td>
+<td style="text-align: left;"><strong>M</strong></td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[UIS02]</td>
+<td style="text-align: left;">A user can log in using their account</td>
+<td style="text-align: left;"><strong>M</strong></td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;">Only if the account used is registered</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[UIS03]</td>
+<td style="text-align: left;">A user can log out</td>
+<td style="text-align: left;"><strong>M</strong></td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;">Only if the user is logged in</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[UIS04]</td>
+<td style="text-align: left;">A user needs to connect a service</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;">Atleast 1 service<br />
+Services such as: Fitbit, Canvas, IOS Health, etc</td>
+</tr>
+</tbody>
+</table>
+<h4 id="dashboard">Dashboard</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Id</th>
+<th style="text-align: left;">Requirement</th>
+<th style="text-align: left;">MoSCoW</th>
+<th style="text-align: left;">Urgency</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[D01]</td>
+<td style="text-align: left;">The user can define their preferences in showing data</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[D02]</td>
+<td style="text-align: left;">The user can view their school attendance</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[D03]</td>
+<td style="text-align: left;">The user can view their sleeping pattern</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[D04]</td>
+<td style="text-align: left;">The user can view their heartrate over a period of time</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[D05]</td>
+<td style="text-align: left;">The user can view their grades</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[D06]</td>
+<td style="text-align: left;">The user can view their submitting pattern</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[D07]</td>
+<td style="text-align: left;">The user can compare their data with peers</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[D08]</td>
+<td style="text-align: left;">The user can view his To-do’s from Canvas</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[D09]</td>
+<td style="text-align: left;">The user can see an overview of their activities</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[D10]</td>
+<td style="text-align: left;">The user can enter their eating habits</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[D11]</td>
+<td style="text-align: left;">The user can submit how they are feeling in a mood log</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[D12]</td>
+<td style="text-align: left;">The user can view their step count</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[D13]</td>
+<td style="text-align: left;">The user can view their whereabouts</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[D14]</td>
+<td style="text-align: left;">The user can view their biometrics in an overview with periods of time</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[D15]</td>
+<td style="text-align: left;">The user can view their activities in an overview with periods of time</td>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="user-settings">User Settings</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Id</th>
+<th style="text-align: left;">Requirement</th>
+<th style="text-align: left;">MoSCoW</th>
+<th style="text-align: left;">Urgency</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[US01]</td>
+<td style="text-align: left;">The user can decide which data it would like to share.</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[US02]</td>
+<td style="text-align: left;">The user can request to download all their data</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[US03]</td>
+<td style="text-align: left;">The user can remove their account</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><em>High</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[US04]</td>
+<td style="text-align: left;">The user can give permission to compare his data with other users</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[US05]</td>
+<td style="text-align: left;">The user can subscribe to periodically receive notifications</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: left;"><em>Medium</em></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[US06]</td>
+<td style="text-align: left;">The user wants to know when their data was last synced</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: left;"><em>Low</em></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="non-functional-requirements">Non-functional Requirements</h3>
+<p>Below is the table that shows all non-functional requirements for the QS project.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Id</th>
+<th style="text-align: left;">Requirement</th>
+<th style="text-align: left;">Priority</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[NF01]</td>
+<td style="text-align: left;">The UI looks well organized</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[NF02]</td>
+<td style="text-align: left;">The UI is easy to use.</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[NF03]</td>
+<td style="text-align: left;">All code is easy to read, well documented and easy to transfer to the next group.</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[NF04]</td>
+<td style="text-align: left;">The application has a well-structured design that facilitates easy maintenance.</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="quality-attributes">Quality attributes </h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID </th>
+<th style="text-align: left;">Category </th>
+<th style="text-align: left;">Description </th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[NF01] </td>
+<td style="text-align: left;"><em>Maintainability</em></td>
+<td style="text-align: left;">The system is maintainable because it is future proof. This means the code is clean, commented  and tested for easy changes in the future.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[NF02] </td>
+<td style="text-align: left;"><em>Usability</em></td>
+<td style="text-align: left;">The UI will be made in an intuitive way in order to ensure maximum user experience.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[NF03] </td>
+<td style="text-align: left;"><em>Usability</em></td>
+<td style="text-align: left;">The UI will be made in an intuitive way in order to ensure maximum user friendliness.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[NF04] </td>
+<td style="text-align: left;"><em>Maintainability</em></td>
+<td style="text-align: left;">The code will be clean, commented  and tested for easy transfer from the current to the next group.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[NF05]</td>
+<td style="text-align: left;"><em>Maintainability</em></td>
+<td style="text-align: left;">The code will be clean, commented  and tested for easy maintenance.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[NF06]</td>
+<td style="text-align: left;"><em>Security</em></td>
+<td style="text-align: left;">The system has restrictions of users access in accordance with authentication / authorization</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[NF07]</td>
+<td style="text-align: left;"><em>Maintainability</em></td>
+<td style="text-align: left;">The system has both integration and unit tests for the highest risk classes to ensure that crucial items are not broken.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">[NF08]</td>
+<td style="text-align: left;"><em>Reliability</em></td>
+<td style="text-align: left;">The system sends alerts by e-mail when errors occur on production</td>
+</tr>
+</tbody>
+</table>
+<h2 id="use-cases">Use cases</h2>
+<p><img src="-s/media/image1.png" style="width:8.25368in;height:3.70833in" />Below you can see the use case diagram.</p>
+<h3 id="use-case-tables">Use case tables:</h3>
+<p>The use case tables can be found in Appendix 1.</p>
+<h1 id="ui-draftssketches">UI drafts/sketches</h1>
+<h2 id="dashboard-1"><img src="-s/media/image2.png" style="width:7.96875in;height:6.51944in" />Dashboard</h2>
+<h2 id="login-page"><img src="-s/media/image3.png" style="width:7.63611in;height:4.29167in" />Login page</h2>
+<h2 id="registration-page">Registration page</h2>
+<p><img src="-s/media/image4.png" style="width:7.85903in;height:4.41667in" /></p>
+<h2 id="registration-page-service-selection">Registration page – Service selection</h2>
+<p><img src="-s/media/image5.png" style="width:7.85903in;height:4.01042in" /></p>
+<h2 id="domain-model"><img src="-s/media/image6.png" style="width:8.29183in;height:6.92174in" />Domain Model</h2>
+<h1 id="appendix-1">Appendix 1:</h1>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase UIS01</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Register Account</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>Actor doesn't have a registered account</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the register web page</p>
+<p>2. System asks for the Fontys account</p>
+<p>information</p>
+<p>3. Actor fills their Fontys account information</p>
+<p>In [1]</p>
+<p>5. System asks for additional information</p>
+<p>6. Actor fills in requested information</p>
+<p>7. System requests user to connect a service</p>
+<p>8. Actor connects Fitbit</p>
+<p>9. Actor fills their Fitbit account information in [2]</p>
+<p>10. System registers the account</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] The credentials are not known in the system:</p>
+<p>- Show user a notification<br />
+- Go back to step 2</p>
+<p>[2] Fitbit account information is invalid</p>
+<p>- Show user a notification</p>
+<p>- Go back to step 9</p></td>
+</tr>
+<tr class="even">
+<td>Final Result</td>
+<td>Account has been registered</td>
+</tr>
+</tbody>
+</table>
+<table style="width:92%;">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase UIS02</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Log In</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>Actor is not logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the Log In web page</p>
+<p>2. System asks for the actors Log In</p>
+<p>3. Actor fills his Log In information in [1]</p>
+<p>4. System Logs the actor in</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] Log In information is invalid</p>
+<p>- Show user a notification</p>
+<p>- Go back to step 2</p></td>
+</tr>
+<tr class="even">
+<td>Final Result</td>
+<td>Actor is logged in</td>
+</tr>
+</tbody>
+</table>
+<table style="width:67%;">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase UIS03</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Log Out</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor presses Log Out</p>
+<p>2. System Logs the actor out</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final Result</td>
+<td>Actor is logged out</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D01</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Define Preferences</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor clicks on the settings icon.</p>
+<p>2. The system redirects the user to the settings screen. [1]</p>
+<p>3. Actor can check several checkboxes to define what data he wants to share and what he doesn’t want to share.</p>
+<p>4. Actor clicks on the save button.</p>
+<p>5. The system saves the users preferences.</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>The user’s preferences are saved</td>
+</tr>
+</tbody>
+</table>
+<table style="width:85%;">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D02</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View School attendance</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor views their homescreen dashboard.</p>
+<p>2. Actor selects school attendance.</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>Actor can view their school attendance.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D03</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View Sleeping pattern</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor views their homescreen dashboard.</p>
+<p>2. Actor selects sleeping pattern.</p>
+<p>3. Dashboard will show the sleeping pattern of actor [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] There is no sleeping pattern information available:</p>
+<blockquote>
+<p>- Show actor notification<br />
+- Go back to step 1</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>Actor can view his sleeping pattern.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use case D04</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View Heartrate</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the heartrate page</p>
+<p>2. Dashboard shows option to selected period of time</p>
+<p>3. Actor choses a period of time</p>
+<p>4. Dashboard will show the heartrate over the chosen period of time [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] There is no heartrate information available for selected period of time:</p>
+<blockquote>
+<p>- Show actor notification<br />
+- Go back to step 2</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>System will generate and show the heartrate over the chosen period of time</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use case D05</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View Grades</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the grades page</p>
+<p>2. Dashboard will show an overview of all grades [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] There are no grades available:</p>
+<p>- Show actor notification</p>
+<p>- Go back to step 1</p></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>System will generate and show an overview of all grades of the current actor</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use case D06</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View Submission Pattern</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the submitting pattern page</p>
+<p>2. Dashboard will show an overview of all the courses [1]</p>
+<p>3. Actor chooses a course and a period</p>
+<p>4. Dashboard will show the submitting pattern for that course in the given period [2]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] The actor doesn’t take any courses</p>
+<p>- Show actor notification</p>
+<p>- Go back to step 2</p>
+<p>[2] The actor was not participating in the course during the given period</p>
+<p>- Show actor notification</p>
+<p>- Go back to step 3</p></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>System will generate and show the submitting pattern for that course in the given period</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D07</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Comparing data with peers</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>The actor is logged in and has given permission to share data with peers</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the compare peer data page</p>
+<p>2. Actor selects which data to compare with peers</p>
+<p>2. Dashboard will show the compared data of the actor [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] Actor has no data available:</p>
+<p>- Only show peer data</p></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>The submission patterns are shown on the screen</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D08</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View ToDo’s Canvas</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>The actor is logged in and the actor has given rights to view Todo’s in Canvas</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor chooses for the menu ToDo</p>
+<p>2. Dashboard shows the ToDo screen [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] There are no ToDo’s available:</p>
+<p>- Show actor notification</p>
+<p>- Go back to step 1</p></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>The ToDo’s are shown on the screen</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D09</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View overview activities</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>The actor is logged in and has given permission to share activity data.</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor chooses for the menu Activities</p>
+<p>2. Dashboard shows the Activities screen [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] There are no activities available:</p>
+<p>- Show actor notification</p>
+<p>- Go back to step 1</p></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>An overview for the Activities are shown on the screen</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D10</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Add eating habbit</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. The actor opens the Eating Habits page</p>
+<p>2. The system shows the Eating Habits screen</p>
+<p>3. The actor chooses for New</p>
+<p>4. The actor fills in the name for the meal, the date and time and the amount of Kcal</p>
+<p>5. The actor chooses for Create eating habit</p>
+<p>6. The system insert the data in de DB</p>
+<p>7. The system shows the overview in the Eating Habits screen</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>The actor added an eating habit</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View eating habbit</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>Actor is logged in and has inserted some eating habits</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor chooses for the menu Eating Habits</p>
+<p>2. Dashboard shows the Eating Habits screen</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>An overview for the eating habits are shown on the screen</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D11</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Add mood in Mood log</td>
+</tr>
+<tr class="even">
+<td>Actors</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the mood log page</p>
+<p>2. Dashboard shows notification to ask how actor is feeling</p>
+<p>3. Actor clicks on most accurate representation of mood</p>
+<p>4. Dashboard will add the mood</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>System will add the mood to the actor for that date and time.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D12</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View step count</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the activity page</p>
+<p>2. Actor specifies to show steps</p>
+<p>3. Actor specifies date range</p>
+<p>4. Dashboard shows requested steps in requested range [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] There are no step counts available:</p>
+<p>- Show actor notification</p>
+<p>- Go to step 1</p></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>An overview of the step counts in the specified range</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D13</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View location</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the location page</p>
+<p>2. Dashboard shows where actor has been in a map [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] There are no location data available:</p>
+<p>- Show actor notification</p>
+<p>- Go to step 1</p></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>Dashboard shows map of actors’ whereabouts</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D14</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View biometric data</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>Actor is logged in</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor goes to the biometric data page</p>
+<p>2. Actor specifies to show specific biometric</p>
+<p>3. Actor specifies date range</p>
+<p>2. Dashboard shows requested biometric data in requested range [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] There are no biometric data available:</p>
+<p>- Show actor notification</p>
+<p>- Go to step 1</p></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>Dashboard shows biometric data of the actor</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase D15</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>View activity for specific time</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User</td>
+</tr>
+<tr class="odd">
+<td>Assumption</td>
+<td>The actor is logged in and has given permission to share activity data.</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor chooses for the menu Activities</p>
+<p>2. Actor specifies timeframe</p>
+<p>2. Dashboard shows the Activities screen for specific timeframe [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exceptions</td>
+<td><p>[1] There are no activities available:</p>
+<p>- Show actor notification</p>
+<p>- Go back to step 1</p></td>
+</tr>
+<tr class="even">
+<td>Final result</td>
+<td>An overview for the Activities, for the specific timeframe, is shown on the screen</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase US01</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Set permissions</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User of the QS Dashboard</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in.</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor opens their account settings</p>
+<p>2. System loads the specific account settings for the user logged in</p>
+<p>3. Actor makes the choice to enable or disable to share the data with others</p>
+<p>4. System saves the choice of the user</p></td>
+</tr>
+<tr class="odd">
+<td>Exception</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final Result</td>
+<td>Permissions to share personal data is stored to the users preference.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase US02</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Request download of userdata</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User of the QS Dashboard</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in.</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor opens their account settings</p>
+<p>2. System loads the specific account settings for the user logged in</p>
+<p>3. Actor clicks the request all data button</p>
+<p>4. System retrieves all data and sends email to actor with data</p></td>
+</tr>
+<tr class="odd">
+<td>Exception</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final Result</td>
+<td>Actor receives all their data via e-mail</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase US03</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Removal of account</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User of the QS Dashboard</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in.</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor opens their account settings</p>
+<p>2. System loads the specific account settings for the user logged in</p>
+<p>3. Actor clicks the delete account</p>
+<p>4. System shows confirmation notification</p>
+<p>5. Actor clicks ’Yes, I’m sure"</p>
+<p>6. System deletes the account and data associated with it.</p></td>
+</tr>
+<tr class="odd">
+<td>Exception</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final Result</td>
+<td>System has removed actors account</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase US04</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Compare data</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User of the QS Dashboard</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td><p>User is logged in.</p>
+<p>Canvas is connected to the QS dashboard</p></td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor opens their account settings</p>
+<p>2. System loads the specific account settings for the user logged in]</p>
+<p>3. Actor makes the choice to enable or disable to compare his data with others</p>
+<p>4. System saves the choice of the user</p></td>
+</tr>
+<tr class="odd">
+<td>Exception</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final Result</td>
+<td>Permissions to share personal data is stored to the users preference.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase US05</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Subscribe to notifications</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User of the QS Dashboard</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in.</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor opens their account settings</p>
+<p>2. System loads the specific account settings for the user logged in</p>
+<p>3. Actor makes the choice to which notifications they would like to subscribe to</p>
+<p>4. System saves the choice of the user</p></td>
+</tr>
+<tr class="odd">
+<td>Exception</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Final Result</td>
+<td>System saves the Notification Subscription settings</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Usecase US06</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Name</td>
+<td>Check last date of synced data</td>
+</tr>
+<tr class="even">
+<td>Actor</td>
+<td>User of the QS Dashboard</td>
+</tr>
+<tr class="odd">
+<td>Assumptions</td>
+<td>Actor is logged in.</td>
+</tr>
+<tr class="even">
+<td>Description</td>
+<td><p>1. Actor opens their account settings</p>
+<p>2. System loads the specific account settings for the user logged in</p>
+<p>3. Actor checks when data was last synced [1]</p></td>
+</tr>
+<tr class="odd">
+<td>Exception</td>
+<td><p>[1] There has not been a sync:</p>
+<p>- Show actor notification</p>
+<p>- Go back to step 1</p></td>
+</tr>
+<tr class="even">
+<td>Final Result</td>
+<td>System shows last sync date to actor</td>
+</tr>
+</tbody>
+</table>
+			</body>
+</html>
