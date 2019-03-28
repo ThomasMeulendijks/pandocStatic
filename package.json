@@ -1,0 +1,23 @@
+{
+  "name": "pandocstatic",
+  "version": "1.0.0",
+  "description": "static site based on pandocmarkdown",
+  "main": "makefile",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasmeulendijks/pandocStatic.git"
+  },
+  "author": "Thomas Meulenijks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasmeulendijks/pandocStatic/issues"
+  },
+  "homepage": "https://github.com/thomasmeulendijks/pandocStatic#readme"
+}
