@@ -42,6 +42,9 @@ $highlighting-css$
 		$endfor$
 	</head>
 	<body>
+		<div class="topnav">
+			<a href="index">index</a>
+		</div>
 		$for(include-before)$
 		$include-before$
 		$endfor$
