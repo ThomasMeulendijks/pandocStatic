@@ -2,4 +2,3 @@
 # If you change the makefile you MUST change this too
 html/
 node_modules/
-package-lock.json
