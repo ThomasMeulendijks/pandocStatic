@@ -10,10 +10,6 @@ all: init clean $(OUTBRANCH) allfiles css
 
 allfiles: $(ALLFILES) css
 
-layout:
-	rm -r html/*.html || true
-	make $(ALLFILES)
-
 css:
 	cp -r ./css/ ./html/
 
@@ -24,7 +20,7 @@ $(OUTBRANCH):
 	(cd $(OUTBRANCH) && git checkout $(OUTBRANCH)) || \
 		(cd $(OUTBRANCH) && git checkout --orphan $(OUTBRANCH) && git rm -rf .)
 
-$(OUTBRANCH)/%.html: %.md
+$(OUTBRANCH)/%.html: %.md _layout.html5
 	pandoc -s --template "_layout" --css "css/main.css" -f markdown -t html5 -o $@ $<
 
 init:
